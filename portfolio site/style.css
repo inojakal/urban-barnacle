@@ -1,0 +1,595 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+li{
+    list-style: none !important;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-areas:
+    "header header"
+    "nav main"
+    "nav aside"
+    "footer footer";
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto 1fr 1fr auto;
+    height: 100vh;
+    }
+
+
+
+   
+
+header {
+    grid-area: header;
+    background-color: #4f6d8a !important;
+    color: white;
+    padding: 20px !important;
+    text-align: center !important;    
+    }
+
+nav {
+    grid-area: nav;
+    background: #aeb2ba;
+    color: aliceblue;
+    padding: 20px;
+    text-align: center;
+}
+
+
+h1, h2, h3 {
+    color: #141e29;
+}
+a:hover {
+    text-decoration: underline;
+    color: dodgerblue;
+}
+
+a:visited {
+    text-decoration: none;
+    color: aliceblue;
+}
+
+section {
+    margin-bottom: 40px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+section {
+    animation: fadeIn 1s ease-in-out;
+}
+
+
+main {
+    grid-area: main;
+    background: #7d95ff;
+    padding: 20px;
+    text-align: center;
+}
+
+aside {
+    grid-area: aside;
+    background: #647ef5;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Carousel Styles for Aside */
+.carousel {
+    margin: 20px auto;
+    border-radius: 10px;
+    overflow: visible; /* Allow controls to show properly */
+    box-shadow: 10px 10px 2px #2626267c;
+    max-width: 520px; /* Must be larger than image size (480px + padding + controls) */
+    background-color: aliceblue; /* Match polaroid background */
+    padding: 8px; /* Add some padding like polaroids */
+}
+
+.carousel-item img {
+    width: 480px; 
+    height: 480px; 
+    aspect-ratio: 1 / 1; /* Forces perfect square */
+    object-fit: cover;   /* Crops to fill the square without distortion */
+    margin: 0 auto;      /* Centers the image horizontally */
+    display: block;      /* Ensures proper centering */
+}
+
+.carousel-indicators {
+    margin-bottom: 10px;
+}
+
+.carousel-indicators [data-bs-target] {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    margin: 0 3px;
+}
+
+.carousel-indicators .active {
+    background-color: white;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-size: 20px 20px; /* Ensure proper icon sizing */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 50px; /* Fixed width instead of percentage */
+    height: 50px; /* Fixed height to prevent warping */
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+footer {
+    grid-area: footer; 
+    background: #333; 
+    color: rgb(255, 255, 255);
+    padding: 20px; 
+    text-align: center;
+}
+
+.navbar {
+    min-height: 70px;
+    display:  flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    max-width: auto;
+    width: 90% !important;
+    margin: 0 auto !important;
+    background-color: rgb(75, 75, 75);
+    padding-left: 0;
+    padding-right: 0;
+  
+  }
+
+/*.nav-menu {
+    position:fixed;
+    left: -100%;
+    top: 70px;
+    gap: 0;
+    flex-direction: column;
+    background-color: 262626;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+}*/
+
+.nav-menu.active{
+    left: 0;
+}
+.nav-item {
+    margin: 16px;
+}
+
+.nav-branding {
+    font-size: 2.5rem;
+    color: aliceblue;
+}
+
+.nav-link{
+    transition: 0.7s ease;
+    font-size: 24px;
+}
+
+.nav-link:hover {
+    color: #5d9bf7;
+}
+
+
+nav ul {
+    list-style: none;
+    padding: 0 ;
+    display: flex;
+    justify-content: space-around;
+    }
+
+nav a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: white;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+    .hamburger.active .bar:nth-child(2){
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    body {
+        grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "aside"
+            "footer";
+    grid-template-columns: 1fr;
+    }
+    nav {text-align: center;}
+
+    /* Mobile nav menu behavior */
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px; /* align right under the header */
+        gap: 0;
+        flex-direction: column;
+        background-color: #262626;
+        width: 100%;
+        height: auto; /* only as tall as its content */
+        max-height: calc(100vh - 70px); /* prevent overflow on very small screens */
+        overflow-y: auto;
+        text-align: center;
+        transition: 0.3s;
+        padding: 12px 0;
+        z-index: 1000; /* ensure menu overlays header/content */
+        box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+
+    .nav-menu.active{
+        left: 0;
+    }
+}
+
+
+/* sets up the polaroid style images */
+.gallery {
+    /* Change --tile-size to adjust the square image size (e.g., 180px, 240px, 320px) */
+    --tile-size: 240px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    align-items: stretch;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 0;
+}
+
+figure {
+    /* Each tile targets this width; wrapping creates the responsive grid */
+    flex: 0 1 var(--tile-size);
+    max-width: var(--tile-size);
+    border: 1px solid #777;
+    padding: 8px;
+    box-sizing: border-box;
+    background-color: aliceblue;
+    box-shadow:10px 10px 2px #2626267c;
+    border-radius: 10px;
+}
+
+figcaption {
+            text-align: center;
+            padding: 10px;
+            color: #333;
+}
+
+.gallery img {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Forces perfect square */
+    object-fit: cover;   /* Crops to fill the square without distortion */
+    display: block;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* Modal overlay styles */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+/* Override Bootstrap modal styles */
+.modal-dialog {
+    max-width: fit-content !important;
+    margin: 1.75rem auto !important;
+}
+
+.modal-content {
+    position: relative !important;
+    background-color: aliceblue !important;
+    padding: 8px !important;
+    border-radius: 10px !important;
+    box-shadow: 10px 10px 2px #2626267c !important;
+    border: 1px solid #777 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    animation: modalFadeIn 0.3s ease-out !important;
+    max-width: fit-content !important;
+    max-height: fit-content !important;
+    width: auto !important;
+    height: auto !important;
+}
+
+.modal-image {
+    max-width: calc(90vw - 40px) !important;
+    max-height: calc(90vh - 120px) !important;
+    object-fit: contain !important;
+    border-radius: 6px !important;
+    margin-bottom: 10px !important;
+    display: block !important;
+    width: auto !important;
+    height: auto !important;
+}
+
+.modal-caption {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #333;
+    margin: 0;
+    padding: 10px;
+    background-color: transparent;
+    border-radius: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #666;
+    cursor: pointer;
+    padding: 5px;
+    line-height: 1;
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+    color: #333;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .modal-content {
+        max-width: 95vw;
+        max-height: 95vh;
+        padding: 15px;
+    }
+    
+    .modal-image {
+        max-height: 60vh;
+    }
+    
+    .modal-caption {
+        font-size: 1rem;
+    }
+    
+    .modal-close {
+        font-size: 1.5rem;
+        top: 5px;
+        right: 10px;
+    }
+}
+
+
+.descriptions {
+    text-align: center;
+    margin: 20px 0;
+    padding: 10px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Page-specific layouts using body classes */
+
+/* About page - Single column flexbox layout */
+.about-page {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100vh !important;
+}
+
+.about-page header {
+    flex: 0 0 auto !important;
+    grid-area: unset !important;
+}
+
+.about-page nav {
+    flex: 0 0 auto !important;
+    grid-area: unset !important;
+}
+
+.about-page main {
+    flex: 1 1 auto !important;
+    grid-area: unset !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 40px !important;
+}
+
+.about-page aside {
+    display: none !important;
+}
+
+.about-page footer {
+    flex: 0 0 auto !important;
+    grid-area: unset !important;
+}
+
+/* Contact page - Two column flexbox layout */
+.contact-page {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100vh !important;
+}
+
+.contact-page header {
+    flex: 0 0 auto !important;
+    grid-area: unset !important;
+}
+
+.contact-page nav {
+    flex: 0 0 auto !important;
+    grid-area: unset !important;
+}
+
+.contact-page main {
+    flex: 1 1 auto !important;
+    grid-area: unset !important;
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 20px !important;
+    padding: 20px !important;
+}
+
+.contact-page aside {
+    flex: 1 1 50% !important;
+    grid-area: unset !important;
+    display: block !important;
+}
+
+.contact-page footer {
+    flex: 0 0 auto !important;
+    grid-area: unset !important;
+}
+
+/* Gallery page - Grid layout with different proportions */
+.gallery-page {
+    display: grid !important;
+    grid-template-areas:
+        "header header"
+        "nav nav"
+        "main main"
+        "aside aside"
+        "footer footer" !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto auto 1fr auto auto !important;
+    height: 100vh !important;
+}
+
+.gallery-page main {
+    grid-area: main !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    gap: 20px !important;
+    padding: 20px !important;
+}
+
+.gallery-page aside {
+    grid-area: aside !important;
+    display: block !important;
+}
+
+/* Mobile responsive adjustments for page-specific layouts */
+@media (max-width: 768px) {
+    .about-page,
+    .contact-page,
+    .gallery-page {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    
+    .contact-page main {
+        flex-direction: column !important;
+    }
+    
+    .contact-page aside {
+        flex: 1 1 auto !important;
+    }
+}
